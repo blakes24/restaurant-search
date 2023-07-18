@@ -1,5 +1,6 @@
 import { View, StyleSheet, FlatList } from "react-native";
 import CategoryCard from "./CategoryCard";
+import { useState } from "react";
 
 const categories = [
   {
@@ -29,12 +30,22 @@ const categories = [
 ];
 
 export default function CategoryContainer() {
+  const [term, setTerm] = useState("Burger");
+  // const setActiveTerm = () => {
+
+  // }
   return (
     <View style={styles.container}>
       <FlatList
         data={categories}
         renderItem={({ item, index }) => (
-          <CategoryCard title={item.title} image={item.img} index={index} />
+          <CategoryCard
+            title={item.title}
+            image={item.img}
+            index={index}
+            active={item.title === term}
+            handlePress={() => setTerm(item.title)}
+          />
         )}
         horizontal
         showsHorizontalScrollIndicator={false}

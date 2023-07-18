@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Image,
   ImageSourcePropType,
+  TouchableOpacity,
 } from "react-native";
 import { elevation } from "../shared/styles";
 
@@ -11,24 +12,33 @@ export default function CategoryCard({
   title,
   image,
   index,
+  active,
+  handlePress,
 }: {
   title: string;
   image: ImageSourcePropType;
   index: number;
+  active: boolean;
+  handlePress: () => void;
 }) {
   return (
-    <View
-      style={[
-        styles.container,
-        styles.elevation,
-        index === 0 ? { marginLeft: 25 } : { marginLeft: 15 },
-      ]}
-    >
-      <View style={styles.imageContainer}>
-        <Image source={image} style={styles.image} />
+    <TouchableOpacity onPress={handlePress}>
+      <View
+        style={[
+          styles.container,
+          styles.elevation,
+          index === 0 ? { marginLeft: 25 } : { marginLeft: 15 },
+          active
+            ? { backgroundColor: "rgb(241,186,87)" }
+            : { backgroundColor: "white" },
+        ]}
+      >
+        <View style={styles.imageContainer}>
+          <Image source={image} style={styles.image} />
+        </View>
+        <Text style={styles.title}>{title}</Text>
       </View>
-      <Text style={styles.title}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
