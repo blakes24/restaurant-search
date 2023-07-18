@@ -10,12 +10,20 @@ import { elevation } from "../shared/styles";
 export default function CategoryCard({
   title,
   image,
+  index,
 }: {
   title: string;
   image: ImageSourcePropType;
+  index: number;
 }) {
   return (
-    <View style={[styles.container, styles.elevation]}>
+    <View
+      style={[
+        styles.container,
+        styles.elevation,
+        index === 0 ? { marginLeft: 25 } : { marginLeft: 15 },
+      ]}
+    >
       <View style={styles.imageContainer}>
         <Image source={image} style={styles.image} />
       </View>
@@ -30,7 +38,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 100,
     marginVertical: 15,
-    marginHorizontal: 15,
     backgroundColor: "white",
     width: 70,
     height: 100,
