@@ -1,6 +1,6 @@
 import { View, StyleSheet, FlatList } from "react-native";
 import CategoryCard from "./CategoryCard";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 
 const categories = [
   {
@@ -29,11 +29,13 @@ const categories = [
   },
 ];
 
-export default function CategoryContainer() {
-  const [term, setTerm] = useState("Burger");
-  // const setActiveTerm = () => {
-
-  // }
+export default function CategoryContainer({
+  term,
+  setTerm,
+}: {
+  term: string;
+  setTerm: React.Dispatch<React.SetStateAction<string>>;
+}) {
   return (
     <View style={styles.container}>
       <FlatList
@@ -51,9 +53,6 @@ export default function CategoryContainer() {
         showsHorizontalScrollIndicator={false}
         keyExtractor={(category) => category.title}
       />
-      {/* {categories.map(({ title, img }) => (
-        <CategoryCard key={title} title={title} image={img} />
-      ))} */}
     </View>
   );
 }
