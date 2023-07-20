@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   lightHeader: {
-    fontSize: 35,
+    fontSize: 30,
   },
   boldHeader: {
-    fontSize: 40,
+    fontSize: 35,
     fontWeight: "bold",
   },
 });

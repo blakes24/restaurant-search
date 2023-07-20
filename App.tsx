@@ -4,6 +4,7 @@ import Header from "./src/components/Header";
 import Search from "./src/components/Search";
 import CategoryContainer from "./src/components/CategoryContainer";
 import { useState } from "react";
+import Restaurants from "./src/components/Restaurants";
 
 export default function App() {
   const [term, setTerm] = useState("Burger");
@@ -12,6 +13,7 @@ export default function App() {
       <Header />
       <Search setTerm={setTerm} />
       <CategoryContainer setTerm={setTerm} term={term} />
+      <Restaurants term={term} />
       <StatusBar style="auto" />
     </View>
   );

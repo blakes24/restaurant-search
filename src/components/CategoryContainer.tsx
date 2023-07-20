@@ -1,6 +1,5 @@
 import { View, StyleSheet, FlatList } from "react-native";
 import CategoryCard from "./CategoryCard";
-import { SetStateAction, useState } from "react";
 
 const categories = [
   {
@@ -59,6 +58,6 @@ export default function CategoryContainer({
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 10,
+    marginVertical: 5,
   },
 });
