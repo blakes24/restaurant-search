@@ -7,20 +7,26 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { elevation } from "../shared/styles";
+import { useNavigation } from "@react-navigation/native";
 
 export default function RestaurantCard({
   title,
   imgUrl,
   rating,
   price,
-  handlePress,
+  id,
 }: {
   title: string;
   imgUrl: ImageSourcePropType;
   rating: number;
   price: string;
-  handlePress: () => void;
+  id: string;
 }) {
+  const navigation = useNavigation();
+  const handlePress = () => {
+    navigation.navigate("Restaurant", { id });
+  };
+
   return (
     <TouchableOpacity onPress={handlePress}>
       <View style={[styles.container, styles.elevation]}>
@@ -54,6 +60,7 @@ const styles = StyleSheet.create({
   },
   info: {
     flex: 1,
+    padding: 15,
   },
   details: {
     flexDirection: "row",

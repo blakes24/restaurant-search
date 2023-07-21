@@ -35,9 +35,10 @@ export default function Restaurants({ term }: { term: string }) {
             title={item.name}
             price={item.price}
             rating={item.rating}
+            id={item.id}
           />
         )}
-        keyExtractor={(category) => category.title}
+        keyExtractor={(item) => item.id}
       />
     </View>
   );
